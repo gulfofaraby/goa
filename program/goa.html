@@ -19,8 +19,8 @@
   for (step = 0; step < 24; step++) 
     picsP.push(picPath.concat('p', step, '.jpg'));
   var picsS = [];
-  for (step = 0; step < 8; step++) 
-    picsS.push(picPath.concat('s', step, '.jpg'));
+#  for (step = 0; step < 8; step++) 
+#    picsS.push(picPath.concat('s', step, '.jpg'));
   var picsV = [];
   for (step = 0; step < 11; step++) 
     picsV.push(picPath.concat('v', step, '.jpg'));
@@ -40,8 +40,15 @@
     frame_time: 100,
   };
   
+  var trial2 = {
+    type: 'animation',
+    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 10),
+    sequence_reps: 1,
+    frame_time: 150,
+  };
+  
   jsPsych.init({
-    timeline: [trial1, iti1, trial1],
+    timeline: [trial1, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
