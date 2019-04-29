@@ -24,17 +24,24 @@
   var picsV = [];
   for (step = 0; step < 11; step++) 
     picsV.push(picPath.concat('v', step, '.jpg'));
-  var picsA = picsB.concat(picsL, picsP, picsS, picsV);
+  const picsA = picsB.concat(picsL, picsP, picsS, picsV);
   
-  var animation_trial = {
+  var trial1 = {
     type: 'animation',
-    stimuli: picsA,
+    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 10),
     sequence_reps: 1,
-    frame_time: 133,
-//    prompt: '<p>Watch carefully.</p>'
+    frame_time: 100,
   };
+  
+  var iti1 = {
+    type: 'animation',
+    stimuli: ['../docs/img_goa/pink0.jpg', '../docs/img_goa/s7.jpg', '../docs/img_goa/pink0.jpg', '../docs/img_goa/white0.jpg', '../docs/img_goa/white0.jpg', '../docs/img_goa/white0.jpg']
+    sequence_reps: 1,
+    frame_time: 100,
+  };
+  
   jsPsych.init({
-    timeline: [animation_trial],
+    timeline: [trial1, iti1, trial1],
     on_finish: function() {
       jsPsych.data.displayData();
     }
