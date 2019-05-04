@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>body{color:white; background-color:black;} p{color:white;}</style>
+  <style>body{color:white; background-color:black;} p{color:white; font-size:28px; font-type:"Courier New"}</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
   <script src="../plugins/jspsych-html-keyboard-response.js"></script>
@@ -28,18 +28,39 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
   
-  var trial0 = {
+  var block1 = {
     type: 'html-keyboard-response',
-    stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
     timeline: [
+      {stimulus: "<p>simply  focus  and  relax</p>"},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'},
+      {stimulus: "<p>it's  good  to  relax</p>"},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'},
+      {stimulus: "<p>simply  focus  and  relax</p>"},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'},
+      {stimulus: "<p>it's  good  to  relax</p>", trial_duration: 1300},
+      {stimulus: "<p>      good      relax</p>", trial_duration: 67},
+      {stimulus: "<p>    a good girl relaxes</p>", trial_duration: 133},
+      {stimulus: "<p>it's  good  to  relax</p>", trial_duration: 500},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'},
+      {stimulus: "<p>breathe,  focus,  and  relax</p>"},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'},
+      {stimulus: "<p>it's  relaxing  to  focus         </p>", trial_duration: 1200},
+      {stimulus: "<p>relax         focus               </p>", trial_duration: 67},
+      {stimulus: "<p>good girl,   relax   and   focus  </p>", trial_duration: 133},
+      {stimulus: "<p>good girl    relax         focus  </p>", trial_duration: 67},
+      {stimulus: "<p>a good girl is relaxed  and  focused</p>", trial_duration: 133},
+      {stimulus: "<p>it's  relaxing  to  focus         </p>", trial_duration: 400},
+      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=600>'}
+      /*
       {prompt: "<p>simply focus and relax</p>"},
       {prompt: "<p>simply focus and relax</p>"},
       {prompt: "<p>it's good to relax</p>"},
       {prompt: "<p>simply focus and relax</p>"},
       {prompt: "<p>it's good to relax</p>"},
       {prompt: "<p>a good girl relaxes</p>", trial_duration: 167},
+      */
     ]
 };    
   
