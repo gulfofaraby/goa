@@ -26,9 +26,9 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
   
-  var trial3 = {
-    type: 'image-keyboard-response',
-    stimulus: '../docs/img_goa/spiral0.gif',
+  var trial0 = {
+    type: 'html-keyboard-response',
+    stimulus: '<img src="../docs/img_goa/spiral0.gif">',
     choices: jsPsych.NO_KEYS,
     prompt: "<p>relax and focus</p>",
     stimulus_duration: 10000
@@ -56,7 +56,7 @@
   };
   
   jsPsych.init({
-    timeline: [trial3, trial1, iti1, trial2],
+    timeline: [trial0, trial1, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
