@@ -26,7 +26,7 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
   
-  var trial0 = {
+  var trial3 = {
     type: 'image-keyboard-response',
     stimulus: '../docs/img_goa/spiral0.gif',
     choices: jsPsych.NO_KEYS,
@@ -56,7 +56,7 @@
   };
   
   jsPsych.init({
-    timeline: [trial0, iti1, trial1, iti1, trial2],
+    timeline: [trial3, trial1, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
