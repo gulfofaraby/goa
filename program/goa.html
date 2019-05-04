@@ -7,7 +7,7 @@
   <script src="../plugins/jspsych-image-keyboard-response.js"></script>
   <link rel="stylesheet" href="../css/jspsych.css"></link>
 </head>
-<body style="background-color:#000000"></body>
+<body style="background-color:#000000" "color:white"></body>
 <script>
   const picPath = '../docs/img_goa/';
   var step;  
@@ -30,10 +30,17 @@
   
   var trial0 = {
     type: 'html-keyboard-response',
-    stimulus: '<img src="../docs/img_goa/spiral0.gif">',
+    stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>',
     choices: jsPsych.NO_KEYS,
-    prompt: "<p>relax and focus</p>",
-    trial_duration: 10000
+    trial_duration: 2000
+    timeline: [
+      {prompt: "<p>simply focus and relax</p>"},
+      {prompt: "<p>simply focus and relax</p>"},
+      {prompt: "<p>it's good to relax</p>"},
+      {prompt: "<p>simply focus and relax</p>"},
+      {prompt: "<p>it's good to relax</p>"},
+      {prompt: "<p>a good girl relaxes</p>", trial_duration: 167},
+    ]
 };    
   
   var trial1 = {
@@ -58,7 +65,7 @@
   };
   
   jsPsych.init({
-    timeline: [trial0, trial1, iti1, trial2],
+    timeline: [trial0, iti1, trial1, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
