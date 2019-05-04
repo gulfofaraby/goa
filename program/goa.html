@@ -26,6 +26,14 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
   
+  var trial0 = {
+    type: 'image-keyboard-response',
+    stimulus: '../docs/img_goa/spiral0.gif',
+    choices: jsPsych.NO_KEYS,
+    prompt: "<p>relax and focus</p>",
+    stimulus_duration: 10000
+};    
+  
   var trial1 = {
     type: 'animation',
     stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 10),
