@@ -29,17 +29,64 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
 
-/*  const displayCode1 = '{stimulus: \<div class=\"container\"><img src=\"../docs/img_goa/'; */
-
   var displayContent = [
-    {bg:'black0.jpg', text:'simply  focus  and  relax'},
-    {bg:'spiral1.gif', text:'simply  focus  and  relax'},
+    {bg:'black0.jpg', text:'simply focus and relax'},
+    {bg:'spiral1.gif', text:'simply focus and relax'},
     {bg:'spiral1.gif'},
-    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  '},
+    {bg:'spiral1.gif', text:'simply breathe in'},
+    {bg:'spiral1.gif', text:'and breathe out'},
+    {bg:'spiral1.gif'},
+    {bg:'spiral0.gif', text:'simply breathe in'},
+    {bg:'spiral0.gif', text:'and breathe out'},
+    {bg:'spiral0.gif'},
+    {bg:'spiral1.gif', text:'breathe in and focus'},
+    {bg:'spiral1.gif', text:'breathe out and relax'},
+    {bg:'spiral1.gif'},
+    {bg:'spiral0.gif', text:'simply breathe and focus'},
+    {bg:'spiral0.gif', text:'on the shimmering lights'},
+    {bg:'spiral0.gif', text:'       as you relax       ', dur: 1000},
+    {bg:'spiral0.gif', text:'              relax       ', dur: 333},
+    {bg:'spiral0.gif', text:'              focus       ', dur: 333},
+    {bg:'spiral0.gif', text:'              focus deeper', dur: 333},
+    {bg:'spiral1.gif', dur: 6000},
+    {bg:'spiral0.gif', dur: 6000},
+    {bg:'spiral1.gif', text:'relax. breathe. focus.'},
+    {bg:'spiral1.gif'},
+    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  ', dur: 800},
     {bg:'spiral1.gif', text:'        good      relax  ', dur: 200},
     {bg:'spiral1.gif', text:'      a good girl relaxes', dur: 400},
     {bg:'spiral1.gif', text:'  it\'s  good  to  relax  ', dur: 600},
-    {bg:'spiral1.gif'}
+    {bg:'spiral0.gif'},
+    {bg:'spiral0.gif', text:'breathe. focus. relax.'},
+    {bg:'spiral0.gif'},
+    {bg:'spiral1.gif', text:'         it\'s  relaxing  to  focus         '},
+    {bg:'spiral1.gif', text:'               relax         focus         ', dur: 150},
+    {bg:'spiral1.gif', text:'  good girl,   relax   and   focus         ', dur: 300},
+    {bg:'spiral1.gif', text:'  good girl    relax         focus         ', dur: 150},
+    {bg:'spiral1.gif', text:'a good girl is relaxed  and  focused       ', dur: 300},
+    {bg:'spiral1.gif', text:'         it\'s  relaxing  to  focus         ', dur: 600},
+    {bg:'spiral1.gif', dur: 2500},
+    {bg:'spiral0.gif', dur: 2000},
+    {bg:'spiral0.gif', text:'           it\'s  good  to  focus  and  relax           ', dur: 1450},
+    {bg:'spiral0.gif', text:'                 good girl focus  and  relax           ', dur: 300},
+    {bg:'spiral0.gif', text:'                 good girl                             ', dur: 150},
+    {bg:'spiral0.gif', text:'you want to be a good girl                             ', dur: 400},
+    {bg:'spiral0.gif', text:'                                                       ', dur: 50},
+    {bg:'spiral0.gif', text:'               you want to be a good girl              ', dur: 150},
+    {bg:'spiral0.gif', dur: 1500},
+    {bg:'spiral1.gif', text:'a good girl is focused and relaxed'},
+    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 100},
+    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 100},
+    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 1800},
+    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 100},
+    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 100},
+    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 500},
+    {bg:'spiral1.gif', text:'  good girl                       ', dur: 100},
+    {bg:'spiral1.gif', text:'  good girl!                      ', dur: 500},
+    {bg:'spiral1.gif', text:'                                  ', dur: 100},
+    {bg:'spiral0.gif', text:'  good girl!', dur: 100},
+    {bg:'spiral0.gif', text:'  you want to be a good girl      ', dur: 300},
+    {bg:'spiral0.gif', text:'                   good girl!', dur: 500}
   ];
   
   var displayTrials = [];
@@ -58,80 +105,9 @@
   var block1 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
-    trial_duration: 5000,
+    trial_duration: 2000,
     timeline: displayTrials,
   };
-  
-      /*
-      {stimulus: '<div class="container"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"></div>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>  it\'s  good  to  relax  </pre></p></div></div>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>        good      relax  </pre></p></div></div>', trial_duration: 200},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>      a good girl relaxes</pre></p></div></div>', trial_duration: 400},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>  it\'s  good  to  relax  </pre></p></div></div>', trial_duration: 600}
-      */
-      /*
-      {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>  it's  good  to  relax  </pre></p>", trial_duration: 1300},
-      {stimulus: "<p><pre>        good      relax  </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>      a good girl relaxes</pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>  it's  good  to  relax  </pre></p>", trial_duration: 350},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>breathe,  focus,  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>         it's  relaxing  to  focus         </pre></p>", trial_duration: 1000},
-      {stimulus: "<p><pre>               relax         focus         </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>  good girl,   relax   and   focus         </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>  good girl    relax         focus         </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>a good girl is relaxed  and  focused       </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>         it's  relaxing  to  focus         </pre></p>", trial_duration: 300},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>           it's  good  to  focus  and  relax           </pre></p>", trial_duration: 1250},
-      {stimulus: "<p><pre>                 good girl focus  and  relax           </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>                 good girl                             </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>you want to be a good girl                             </pre></p>", trial_duration: 400},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'}
-      */
-      /*
-      {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>it's  good  to  relax  </pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>it's  good  to  relax  </pre></p>", trial_duration: 1300},
-      {stimulus: "<p><pre>      good      relax  </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>    a good girl relaxes</pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>it's  good  to  relax  </pre></p>", trial_duration: 350},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>breathe,  focus,  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>         it's  relaxing  to  focus         </pre></p>", trial_duration: 1000},
-      {stimulus: "<p><pre>               relax         focus         </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>  good girl,   relax   and   focus         </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>  good girl    relax         focus         </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>a good girl is relaxed  and  focused       </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>         it's  relaxing  to  focus         </pre></p>", trial_duration: 300},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
-      {stimulus: "<p><pre>           it's  good  to  focus  and  relax           </pre></p>", trial_duration: 1250},
-      {stimulus: "<p><pre>                 good girl focus  and  relax           </pre></p>", trial_duration: 250},
-      {stimulus: "<p><pre>                 good girl                             </pre></p>", trial_duration: 100},
-      {stimulus: "<p><pre>you want to be a good girl                             </pre></p>", trial_duration: 400},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'}
-      */
-      /*
-      {prompt: "<p>simply focus and relax</p>"},
-      {prompt: "<p>simply focus and relax</p>"},
-      {prompt: "<p>it's good to relax</p>"},
-      {prompt: "<p>simply focus and relax</p>"},
-      {prompt: "<p>it's good to relax</p>"},
-      {prompt: "<p>a good girl relaxes</p>", trial_duration: 167},
-      */
-    /*
-    ]
-    */    
   
   var trial1 = {
     type: 'animation',
