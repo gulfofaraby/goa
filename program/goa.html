@@ -55,9 +55,11 @@
     {text:'       as you focus       ', dur: 333},
     {text:'       as you relax deeper', dur: 667},
     {dur: 10000},
-    {text:'relax. breathe. focus.'},
+    {bg: 'spiral0.gif', dur: 750},
+    {bg: 'spiral1.gif', text:'relax. breathe. focus.'},
     {bg: 'spiral0.gif', dur: 500},
-    {bg: 'spiral1.gif'},
+    {bg: 'spiral1.gif', dur: 750},
+    {bg: 'spiral0.gif'},
     {text:'  it\'s  good  to  relax  ', dur: 800},
     {text:'        good      relax  ', dur: 300},
     {text:'      a good girl relaxes', dur: 500},
@@ -79,20 +81,37 @@
     {text:'                                                       ', dur: 50},
     {text:'               you want to be a good girl              ', dur: 150},
     {dur: 1500},
-    {text:'a good girl is focused and relaxed'},
-    {text:' breathe       focus       relax  ', dur: 100},
-    {text:'a good girl is focused and relaxed', dur: 100},
-    {text:' breathe       focus       relax  ', dur: 1800},
-    {text:'a good girl is focused and relaxed', dur: 100},
-    {text:' breathe       focus       relax  ', dur: 100},
+    {bg:'spiral1.gif', text:' breathe       focus       relax  '},
+    {bg:'spiral0.gif', text:'a good girl is focused and relaxed', dur: 300},
+    {text:' breathe       focus       relax  ', dur: 200},
+    {text:'a good girl is focused and relaxed', dur: 1800},
+    {text:' breathe       focus       relax  ', dur: 200},
     {text:'a good girl is focused and relaxed', dur: 500},
     {text:'  good girl                       ', dur: 100},
-    {text:'  good girl!                      ', dur: 700},
     {text:'                                  ', dur: 100},
-    {text:'  good girl!', dur: 200},
-    {bg: 'spiral0.gif', text:'                                  ', dur: 100},
-    {text:'  you want to be a good girl      ', dur: 300},
-    {bg: 'spiral1.gif'}
+    {text:'  good girl                       ', dur: 700},
+    {text:'                                  ', dur: 100},
+    {},
+    {text:'you want to be a good girl', dur: 800},
+    {text:'                          ', dur: 200},
+    {text:'you want to be a good girl', dur: 300},
+    {bg: 'v3.jpg', dur: 300},
+    {bg: 'p18_c.jpg', dur: 300},
+    {bg: 'p21.jpg', dur: 300},
+    {bg: 'l11_c.jpg', dur: 300},
+    {bg:'spiral0.gif', text:'you want to be a good girl', dur: 800},
+    {dur: 3000},
+    {text:'you\'d like to relax much deeper', dur: 1200},
+    {bg: 'p18_c.jpg', text:'you\'d like to relax much deeper', dur: 400},
+    {bg: 'spiral0.gif', text:'you\'d like to relax much deeper', dur: 400},
+    {dur: 3000},
+    {text: 'the next exercise will help you relax much deeper'},
+    {dur: 3000},
+    {text: 'breathe and watch closely'},
+    {},
+    {text: 'simply breathe and focus and watch and relax'},
+    {},
+    {bg: 'black0.jpg'}
   ];
   
   var displayTrials = [];
@@ -119,11 +138,11 @@
     timeline: displayTrials,
   };
   
-  var trial1 = {
+  var block2_strobe = {
     type: 'animation',
     stimuli: jsPsych.randomization.sampleWithoutReplacement(picsL, 24),
     sequence_reps: 1,
-    frame_time: 133,
+    frame_time: 200,
   };
   
   var iti1 = {
@@ -141,7 +160,7 @@
   };
   
   jsPsych.init({
-    timeline: [block1, iti1, trial1, iti1, trial2],
+    timeline: [block1, block2_strobe, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
