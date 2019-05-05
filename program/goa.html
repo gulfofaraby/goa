@@ -43,15 +43,15 @@
   ]
   
   var displayTrials = [];
-  displayContent.forEach(function(content) {
-    if (content.text == null && content.dur == null) {
-      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"></div>\'}'));
+  displayContent.forEach(function(dispCont) {
+    if (dispCont.text == null && dispCont.dur == null) {
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>'});
     } else if (content.text == null) {
-      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"></div>\', trial_duration: ', content.dur, '}'));
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>', trial_duration: dispCont.dur});
     } else if (content.dur == null) {
-      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"><div class=\"text-block\"><p><pre>',  content.text, '</pre></p></div></div>\'}'));
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>'});
     } else {
-      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"><div class=\"text-block\"><p><pre>',  content.text, '</pre></p></div></div>\', trial_duration: ', content.dur, '}'));
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>', trial_duration: dispCont.dur});
     }
   });
   
@@ -59,8 +59,10 @@
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
-    timeline: displayTrials
-      /* [
+    timeline: displayTrials,
+  };
+  
+      /*
       {stimulus: '<div class="container"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"></div>'},
@@ -129,8 +131,7 @@
       */
     /*
     ]
-    */
-};    
+    */    
   
   var trial1 = {
     type: 'animation',
