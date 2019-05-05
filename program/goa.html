@@ -173,18 +173,15 @@
   
   var block2Trials = [];
   var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
-  // var nextText = {trial: null, text: null};
-  // console.log(nextText);
   var nextText = block2Content.shift();
-  console.log(nextText);
-  console.log(nextText.text);
-  console.log(nextText.trial);
+  var nextTrial = nextText.trial;
   for (step = 0; step < 90; step++) {
-    if (nextText.trial !== step) {
+    if (nextTrial !== step) {
       block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"></div>'});
     } else {
       block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"><div class="text-block"><p><pre>' + nextText.text + '</pre></p></div></div>'});
       nextText = block2Content.shift();
+      nextTrial = nextText.trial;
     }
     block2BG = picsL[Math.floor(Math.random()*picsL.length)];
   } 
