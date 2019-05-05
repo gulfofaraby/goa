@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>body{color:white; background-color:black;} p{color:white; font-size:36px; font-type:"Courier New"; margin:.1em;}</style>
-  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding:0px; margin:0px; /* padding-left: 10px; padding-right: 10px; */ }</style>
+  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding-left:15px; padding-right:15px; margin:0px; /* padding-left: 10px; padding-right: 10px; */ }</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
   <script src="../plugins/jspsych-html-keyboard-response.js"></script>
@@ -32,73 +32,83 @@
   var displayContent = [
     {bg:'black0.jpg', text:'simply focus and relax'},
     {bg:'spiral1.gif', text:'simply focus and relax'},
-    {bg:'spiral1.gif'},
-    {bg:'spiral1.gif', text:'simply breathe in'},
-    {bg:'spiral1.gif', text:'and breathe out'},
-    {bg:'spiral1.gif'},
-    {bg:'spiral0.gif', text:'simply breathe in'},
-    {bg:'spiral0.gif', text:'and breathe out'},
-    {bg:'spiral0.gif'},
-    {bg:'spiral1.gif', text:'breathe in and focus'},
-    {bg:'spiral1.gif', text:'breathe out and relax'},
-    {bg:'spiral1.gif'},
-    {bg:'spiral0.gif', text:'simply breathe and focus'},
-    {bg:'spiral0.gif', text:'on the shimmering lights'},
-    {bg:'spiral0.gif', text:'       as you relax       ', dur: 1000},
-    {bg:'spiral0.gif', text:'              relax       ', dur: 333},
-    {bg:'spiral0.gif', text:'              focus       ', dur: 333},
-    {bg:'spiral0.gif', text:'              focus deeper', dur: 333},
-    {bg:'spiral1.gif', dur: 6000},
-    {bg:'spiral0.gif', dur: 6000},
-    {bg:'spiral1.gif', text:'relax. breathe. focus.'},
-    {bg:'spiral1.gif'},
-    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  ', dur: 800},
-    {bg:'spiral1.gif', text:'        good      relax  ', dur: 200},
-    {bg:'spiral1.gif', text:'      a good girl relaxes', dur: 400},
-    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  ', dur: 600},
-    {bg:'spiral0.gif'},
-    {bg:'spiral0.gif', text:'breathe. focus. relax.'},
-    {bg:'spiral0.gif'},
-    {bg:'spiral1.gif', text:'         it\'s  relaxing  to  focus         '},
-    {bg:'spiral1.gif', text:'               relax         focus         ', dur: 150},
-    {bg:'spiral1.gif', text:'  good girl,   relax   and   focus         ', dur: 300},
-    {bg:'spiral1.gif', text:'  good girl    relax         focus         ', dur: 150},
-    {bg:'spiral1.gif', text:'a good girl is relaxed  and  focused       ', dur: 300},
-    {bg:'spiral1.gif', text:'         it\'s  relaxing  to  focus         ', dur: 600},
-    {bg:'spiral1.gif', dur: 2500},
-    {bg:'spiral0.gif', dur: 2000},
-    {bg:'spiral0.gif', text:'           it\'s  good  to  focus  and  relax           ', dur: 1450},
-    {bg:'spiral0.gif', text:'                 good girl focus  and  relax           ', dur: 300},
-    {bg:'spiral0.gif', text:'                 good girl                             ', dur: 150},
-    {bg:'spiral0.gif', text:'you want to be a good girl                             ', dur: 400},
-    {bg:'spiral0.gif', text:'                                                       ', dur: 50},
-    {bg:'spiral0.gif', text:'               you want to be a good girl              ', dur: 150},
-    {bg:'spiral0.gif', dur: 1500},
-    {bg:'spiral1.gif', text:'a good girl is focused and relaxed'},
-    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 100},
-    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 100},
-    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 1800},
-    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 100},
-    {bg:'spiral1.gif', text:' breathe       focus       relax  ', dur: 100},
-    {bg:'spiral1.gif', text:'a good girl is focused and relaxed', dur: 500},
-    {bg:'spiral1.gif', text:'  good girl                       ', dur: 100},
-    {bg:'spiral1.gif', text:'  good girl!                      ', dur: 500},
-    {bg:'spiral1.gif', text:'                                  ', dur: 100},
-    {bg:'spiral0.gif', text:'  good girl!', dur: 100},
-    {bg:'spiral0.gif', text:'  you want to be a good girl      ', dur: 300},
-    {bg:'spiral0.gif', text:'                   good girl!', dur: 500}
+    {},
+    {text:'just breathe in'},
+    {},
+    {text:'and breathe out'},
+    {},
+    {text:' breathe in'},
+    {}
+    {text:'and breathe out'},
+    {},
+    {text:'breathe in'},
+    {text:'and focus'},
+    {text:'and breathe out'},
+    {text:'and relax'},
+    {},
+    {text:'simply breathe'},
+    {},
+    {text:'and focus'},
+    {},
+    {text:'on the shimmering lights'},
+    {},
+    {text:'       as you relax       ', dur: 1000},
+    {text:'              relax       ', dur: 333},
+    {text:'              focus       ', dur: 333},
+    {text:'              focus deeper', dur: 333},
+    {dur: 10000},
+    {text:'relax. breathe. focus.'},
+    {},
+    {text:'  it\'s  good  to  relax  ', dur: 800},
+    {text:'        good      relax  ', dur: 200},
+    {text:'      a good girl relaxes', dur: 400},
+    {text:'  it\'s  good  to  relax  ', dur: 600},
+    {},
+    {text:'breathe. focus. relax.'},
+    {},
+    {text:'         it\'s  relaxing  to  focus         '},
+    {text:'               relax         focus         ', dur: 150},
+    {text:'  good girl,   relax   and   focus         ', dur: 300},
+    {text:'  good girl    relax         focus         ', dur: 150},
+    {text:'a good girl is relaxed  and  focused       ', dur: 300},
+    {text:'         it\'s  relaxing  to  focus         ', dur: 600},
+    {dur: 5000},
+    {text:'           it\'s  good  to  focus  and  relax           ', dur: 1450},
+    {text:'                 good girl focus  and  relax           ', dur: 300},
+    {text:'                 good girl                             ', dur: 150},
+    {text:'you want to be a good girl                             ', dur: 400},
+    {text:'                                                       ', dur: 50},
+    {text:'               you want to be a good girl              ', dur: 150},
+    {dur: 1500},
+    {text:'a good girl is focused and relaxed'},
+    {text:' breathe       focus       relax  ', dur: 100},
+    {text:'a good girl is focused and relaxed', dur: 100},
+    {text:' breathe       focus       relax  ', dur: 1800},
+    {text:'a good girl is focused and relaxed', dur: 100},
+    {text:' breathe       focus       relax  ', dur: 100},
+    {text:'a good girl is focused and relaxed', dur: 500},
+    {text:'  good girl                       ', dur: 100},
+    {text:'  good girl!                      ', dur: 500},
+    {text:'                                  ', dur: 100},
+    {text:'  good girl!', dur: 100},
+    {text:'  you want to be a good girl      ', dur: 300},
+    {text:'                   good girl!', dur: 500}
   ];
   
   var displayTrials = [];
+  var dispBG = 'black0.jpg';
   displayContent.forEach(function(dispCont) {
+    if (dispCont.bg != null) {
+      dispBG = dispCont.bg;
+    }
     if (dispCont.text == null && dispCont.dur == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>'});
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"></div>'});
     } else if (dispCont.text == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>', trial_duration: dispCont.dur});
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"></div>', trial_duration: dispCont.dur});
     } else if (dispCont.dur == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>'});
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>'});
     } else {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>', trial_duration: dispCont.dur});
+      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>', trial_duration: dispCont.dur});
     }
   });
   
