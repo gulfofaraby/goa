@@ -29,7 +29,7 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
 
-  var displayContent = [
+  var block1Content = [
     {bg:'black0.jpg', text:'simply focus and relax'},
     {bg:'spiral1.gif', text:'simply focus and relax'},
     {},
@@ -55,11 +55,8 @@
     {text:'       as you focus       ', dur: 333},
     {text:'       as you relax deeper', dur: 667},
     {dur: 10000},
-    {bg: 'spiral0.gif', dur: 750},
-    {bg: 'spiral1.gif', text:'relax. breathe. focus.'},
-    {bg: 'spiral0.gif', dur: 500},
-    {bg: 'spiral1.gif', dur: 750},
-    {bg: 'spiral0.gif'},
+    {'text:'relax. breathe. focus.'},
+    {},
     {text:'  it\'s  good  to  relax  ', dur: 800},
     {text:'        good      relax  ', dur: 300},
     {text:'      a good girl relaxes', dur: 500},
@@ -81,8 +78,8 @@
     {text:'                                                       ', dur: 50},
     {text:'               you want to be a good girl              ', dur: 150},
     {dur: 1500},
-    {bg:'spiral1.gif', text:' breathe       focus       relax  '},
-    {bg:'spiral0.gif', text:'a good girl is focused and relaxed', dur: 300},
+    {text:' breathe       focus       relax  '},
+    {text:'a good girl is focused and relaxed', dur: 300},
     {text:' breathe       focus       relax  ', dur: 200},
     {text:'a good girl is focused and relaxed', dur: 1800},
     {text:' breathe       focus       relax  ', dur: 200},
@@ -92,57 +89,121 @@
     {text:'  good girl                       ', dur: 700},
     {text:'                                  ', dur: 100},
     {},
-    {text:'you want to be a good girl', dur: 800},
-    {text:'                          ', dur: 200},
-    {text:'you want to be a good girl', dur: 300},
-    {bg: 'v3.jpg', dur: 300},
-    {bg: 'p18_c.jpg', dur: 300},
-    {bg: 'p21.jpg', dur: 300},
-    {bg: 'l11_c.jpg', dur: 300},
-    {bg:'spiral0.gif', text:'you want to be a good girl', dur: 800},
+    {text:'you want to be a good girl', dur: 600},
+    {text:'                          ', dur: 100},
+    {text:'you want to be a good girl', dur: 200},
+    {bg: 'v3.jpg', text:'you want to be a good girl', dur: 150},
+    {bg: 'p18_c.jpg', text:'you want to be a good girl', dur: 150},
+    {bg: 'p21.jpg', text:'you want to be a good girl', dur: 150},
+    {bg: 'l11_c.jpg', text:'you want to be a good girl', dur: 150},
+    {bg:'spiral0.gif', text:'you want to be a good girl', dur: 200},
     {dur: 3000},
     {text:'you\'d like to relax much deeper', dur: 1200},
-    {bg: 'p18_c.jpg', text:'you\'d like to relax much deeper', dur: 400},
+    {bg: 'p18_c.jpg', text:'you\'d like to relax much deeper', dur: 100},
     {bg: 'spiral0.gif', text:'you\'d like to relax much deeper', dur: 400},
     {dur: 3000},
-    {text: 'the next exercise will help you relax much deeper'},
+    {text: 'the next exercise'},
+    {text: 'will help you relax much deeper'},
     {dur: 3000},
     {text: 'breathe and watch closely'},
     {},
-    {text: 'simply breathe and focus and watch and relax'},
+    {text: 'simply breathe                              '},
+    {text: '               and focus                    '},
+    {text: '                         and watch          '},
+    {text: '                                   and relax'},
     {},
-    {bg: 'black0.jpg'}
+    {bg: 'black0.jpg', dur: 1000}
   ];
   
-  var displayTrials = [];
-  var dispBG = 'black0.jpg';
-  displayContent.forEach(function(dispCont) {
-    if (dispCont.bg != null) {
-      dispBG = dispCont.bg;
+  var block1Trials = [];
+  var block1BG = 'black0.jpg';
+  block1Content.forEach(function(block1Cont) {
+    if (block1Cont.bg != null) {
+      block1BG = block1Cont.bg;
     }
-    if (dispCont.text == null && dispCont.dur == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"></div>'});
-    } else if (dispCont.text == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"></div>', trial_duration: dispCont.dur});
-    } else if (dispCont.dur == null) {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>'});
+    if (block1Cont.text == null && block1Cont.dur == null) {
+      block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"></div>'});
+    } else if (block1Cont.text == null) {
+      block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"></div>', trial_duration: block1Cont.dur});
+    } else if (block1Cont.dur == null) {
+      block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block1Cont.text + '</pre></p></div></div>'});
     } else {
-      displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispBG + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>', trial_duration: dispCont.dur});
+      block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block1Cont.text + '</pre></p></div></div>', trial_duration: block1Cont.dur});
     }
   });
+
+
+  var block2Content = [
+    {trial: 8, text: 'it\'s relaxing to spread your legs'},
+    {trial: 9, text: 'it\'s relaxing to spread your legs'},
+    {trial: 10, text: 'it\'s relaxing to spread your legs'},
+    {trial: 17, text: 'a good girl spreads her legs'},
+    {trial: 18, text: 'a good girl spreads her legs'},
+    {trial: 26, text: 'it\'s relaxing  to  spread your legs               '},
+    {trial: 27, text: 'it\'s relaxing  to  spread your legs               '},
+    {trial: 28, text: 'it feels good  to  spread your legs               '},
+    {trial: 29, text: 'it feels good  to  spread your legs               '},
+    {trial: 30, text: '       a good girl spreads her legs               '},
+    {trial: 31, text: '       a good girl spreads her legs               '},
+    {trial: 32, text: '       a good girl spreads her legs               '},
+    {trial: 36, text: ' it feels good  to spread your legs               '},
+    {trial: 37, text: ' it feels good  to spread your legs               '},
+    {trial: 38, text: '                   spread your legs               '},
+    {trial: 39, text: '                   spread your legs               '},
+    {trial: 45, text: '                      good girl                   '},
+    {trial: 46, text: '                      good girl                   '},
+    {trial: 47, text: '                      good girl                   '},
+    {trial: 50, text: '                   spread your legs               '},
+    {trial: 51, text: '                   spread your legs               '},
+    {trial: 52, text: '                   spread your legs               '},
+    {trial: 55, text: '                      good girl                   '},
+    {trial: 56, text: '                      good girl                   '},
+    {trial: 57, text: '                      good girl                   '},
+    {trial: 60, text: '                   spread your legs               '},
+    {trial: 61, text: '                   spread your legs               '},
+    {trial: 62, text: '                   spread your legs               '},
+    {trial: 65, text: '                      good girl                   '},
+    {trial: 66, text: '                      good girl                   '},
+    {trial: 69, text: '                   spread your legs               '},
+    {trial: 70, text: '                   spread your legs               '},
+    {trial: 73, text: '                   spread your legs               '},
+    {trial: 74, text: '                   spread your legs               '},
+    {trial: 77, text: '                   spread your legs               '},
+    {trial: 78, text: '                   spread your legs               '}
+  ]
+  
+  var block2Trials = [];
+  var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+  var nextText = block2Content.shift();
+  for (step = 0; step < 90; step++) {
+    if (step !== nextText.trial) {
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"></div>'});
+    } else {
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"><div class="text-block"><p><pre>' + nextText.text + '</pre></p></div></div>'});
+      nextText = block2Content.shift();
+    }
+    block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+  } 
   
   var block1 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
-    timeline: displayTrials,
+    timeline: block1Trials,
+  };
+
+  var block2 = {
+    type: 'html-keyboard-response',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 150,
+    timeline: block2Trials,
   };
   
   var block2_strobe = {
     type: 'animation',
     stimuli: jsPsych.randomization.sampleWithoutReplacement(picsL, 24),
     sequence_reps: 1,
-    frame_time: 200,
+    frame_time: 150,
   };
   
   var iti1 = {
@@ -160,7 +221,7 @@
   };
   
   jsPsych.init({
-    timeline: [block1, block2_strobe, iti1, trial2],
+    timeline: [block1, block2, block2_strobe, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
