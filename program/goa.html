@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>body{color:white; background-color:black;} p{color:white; font-size:36px; font-type:"Courier New"; margin:.25em;}</style>
+  <style>body{color:white; background-color:black;} p{color:white; font-size:36px; font-type:"Courier New"; margin:.1em;}</style>
   <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background-color: black; color: white; /* padding-left: 10px; padding-right: 10px; */ }</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
@@ -34,10 +34,20 @@
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
     timeline: [
-      {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
-      {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800px height=800px>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>  it\'s  good  to  relax  </pre></p></div></div>', trial_duration: 20000},
-      {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
+      {stimulus: '<div class="container">
+        <div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;">
+        <div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"></div>'},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;">
+        <div class="text-block"><p><pre>  it\'s  good  to  relax  </pre></p></div></div>'},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;">
+        <div class="text-block"><p><pre>        good      relax  </pre></p></div></div>', trial_duration: 200},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;">
+        <div class="text-block"><p><pre>      a good girl relaxes</pre></p></div></div>', trial_duration: 400},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;">
+        <div class="text-block"><p><pre>  it's  good  to  relax  </pre></p></div></div>', trial_duration: 600},
+       /*
       {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
       {stimulus: "<p><pre>  it's  good  to  relax  </pre></p>", trial_duration: 1300},
@@ -59,6 +69,7 @@
       {stimulus: "<p><pre>                 good girl                             </pre></p>", trial_duration: 100},
       {stimulus: "<p><pre>you want to be a good girl                             </pre></p>", trial_duration: 400},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'}
+      */
       /*
       {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
