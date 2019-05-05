@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>body{color:white; background-color:black;} p{color:white; font-size:36px; font-type:"Courier New"; margin:.1em;}</style>
-  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background-color: black; color: white; /* padding-left: 10px; padding-right: 10px; */ }</style>
+  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding:0px; margin:0px; /* padding-left: 10px; padding-right: 10px; */ }</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
   <script src="../plugins/jspsych-html-keyboard-response.js"></script>
@@ -28,12 +28,38 @@
   for (step = 0; step < 11; step++) 
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
+
+  const displayDur = 2000;  
+  const displayCode1 = '{stimulus: \<div class=\"container\"><img src=\"../docs/img_goa/';
+  var displayContent = [
+    {bg:'black0.jpg', text:'simply  focus  and  relax'},
+    {bg:'spiral1.gif', text:'simply  focus  and  relax'},
+    {bg:'spiral1.gif'},
+    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  '},
+    {bg:'spiral1.gif', text:'        good      relax  ', dur: 200},
+    {bg:'spiral1.gif', text:'      a good girl relaxes', dur: 400},
+    {bg:'spiral1.gif', text:'  it\'s  good  to  relax  ', dur: 600},
+    {bg:'spiral1.gif'}
+  ]
+  
+  var displayTrials = [];
+  displayContent.forEach(function(content) {
+    if (content.text == null && content.dur == null) {
+      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"></div>\'}'));
+    } else if (content.text == null) {
+      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"></div>\', trial_duration: ', content.dur, '}'));
+    } else if (content.dur == null) {
+      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"><div class=\"text-block\"><p><pre>',  content.text, '</pre></p></div></div>\'}'));
+    } else {
+      displayTrials.push(displayCode1.concat(content.bg, '\" style=\"width:100%;\"><div class=\"text-block\"><p><pre>',  content.text, '</pre></p></div></div>\', trial_duration: ', content.dur, '}'));
+    });
   
   var block1 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
-    timeline: [
+    timeline: displayTrials
+      /* [
       {stimulus: '<div class="container"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>simply  focus  and  relax</pre></p></div></div>'},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"></div>'},
@@ -41,7 +67,8 @@
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>        good      relax  </pre></p></div></div>', trial_duration: 200},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>      a good girl relaxes</pre></p></div></div>', trial_duration: 400},
       {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>  it\'s  good  to  relax  </pre></p></div></div>', trial_duration: 600}
-       /*
+      */
+      /*
       {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
       {stimulus: "<p><pre>  it's  good  to  relax  </pre></p>", trial_duration: 1300},
@@ -99,7 +126,9 @@
       {prompt: "<p>it's good to relax</p>"},
       {prompt: "<p>a good girl relaxes</p>", trial_duration: 167},
       */
+    /*
     ]
+    */
 };    
   
   var trial1 = {
