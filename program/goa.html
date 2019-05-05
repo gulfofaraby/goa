@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>body{color:white; background-color:black;} p{color:white; font-size:36px; font-type:"Courier New"}</style>
-  <style> .container{position:relative;} .text-block {position:absolute; bottom: 400px; right: 400px; background-color: black; color: white; padding-left: 20px; padding-right: 20px;}</style>
+  <style> .container{position:relative; width:800 height:800} .text-block {position:absolute; bottom: 400px; right: 400px; background-color: black; color: white; padding-left: 20px; padding-right: 20px;}</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
   <script src="../plugins/jspsych-html-keyboard-response.js"></script>
@@ -36,7 +36,7 @@
     timeline: [
       {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
-      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:800;"><div class="text-block"><p><pre>it\'s  good  to  relax  </pre></p></div></div>'},
+      {stimulus: '<div class="container"><img src="../docs/img_goa/spiral1.gif" style="width:100%;"><div class="text-block"><p><pre>it\'s  good  to  relax  </pre></p></div></div>'},
       {stimulus: '<img src="../docs/img_goa/spiral0.gif" width=800 height=800>'},
       {stimulus: "<p><pre>simply  focus  and  relax</pre></p>"},
       {stimulus: '<img src="../docs/img_goa/spiral1.gif" width=800 height=800>'},
