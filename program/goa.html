@@ -43,6 +43,7 @@
     {},
     {text:'breathe in'},
     {text:'and focus'},
+    {},
     {text:'and breathe out'},
     {text:'and relax'},
     {},
@@ -50,31 +51,29 @@
     {},
     {text:'and focus'},
     {},
-    {text:'on the shimmering lights'},
-    {},
     {text:'       as you relax       ', dur: 1000},
-    {text:'              relax       ', dur: 333},
-    {text:'              focus       ', dur: 333},
-    {text:'              focus deeper', dur: 333},
+    {text:'       as you focus       ', dur: 333},
+    {text:'       as you relax deeper', dur: 667},
     {dur: 10000},
     {text:'relax. breathe. focus.'},
-    {},
+    {bg: 'spiral0.gif', dur: 500},
+    {bg: 'spiral1.gif'},
     {text:'  it\'s  good  to  relax  ', dur: 800},
-    {text:'        good      relax  ', dur: 200},
-    {text:'      a good girl relaxes', dur: 400},
-    {text:'  it\'s  good  to  relax  ', dur: 600},
+    {text:'        good      relax  ', dur: 300},
+    {text:'      a good girl relaxes', dur: 500},
+    {text:'  it\'s  good  to  relax  ', dur: 500},
     {},
     {text:'breathe. focus. relax.'},
     {},
     {text:'         it\'s  relaxing  to  focus         '},
     {text:'               relax         focus         ', dur: 150},
-    {text:'  good girl,   relax   and   focus         ', dur: 300},
+    {text:'  good girl,   relax   and   focus         ', dur: 400},
     {text:'  good girl    relax         focus         ', dur: 150},
-    {text:'a good girl is relaxed  and  focused       ', dur: 300},
+    {text:'a good girl is relaxed  and  focused       ', dur: 400},
     {text:'         it\'s  relaxing  to  focus         ', dur: 600},
     {dur: 5000},
     {text:'           it\'s  good  to  focus  and  relax           ', dur: 1450},
-    {text:'                 good girl focus  and  relax           ', dur: 300},
+    {text:'                 good girl focus  and  relax           ', dur: 400},
     {text:'                 good girl                             ', dur: 150},
     {text:'you want to be a good girl                             ', dur: 400},
     {text:'                                                       ', dur: 50},
@@ -88,11 +87,12 @@
     {text:' breathe       focus       relax  ', dur: 100},
     {text:'a good girl is focused and relaxed', dur: 500},
     {text:'  good girl                       ', dur: 100},
-    {text:'  good girl!                      ', dur: 500},
+    {text:'  good girl!                      ', dur: 700},
     {text:'                                  ', dur: 100},
-    {text:'  good girl!', dur: 100},
+    {text:'  good girl!', dur: 200},
+    {bg: 'spiral0.gif', text:'                                  ', dur: 100},
     {text:'  you want to be a good girl      ', dur: 300},
-    {text:'                   good girl!', dur: 500}
+    {bg: 'spiral1.gif'}
   ];
   
   var displayTrials = [];
@@ -121,7 +121,7 @@
   
   var trial1 = {
     type: 'animation',
-    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 10),
+    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsL, 24),
     sequence_reps: 1,
     frame_time: 133,
   };
@@ -135,7 +135,7 @@
   
   var trial2 = {
     type: 'animation',
-    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 10),
+    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 30),
     sequence_reps: 1,
     frame_time: 100,
   };
