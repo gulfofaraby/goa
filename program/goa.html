@@ -29,8 +29,8 @@
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
 
-  const displayDur = 2000;  
-  const displayCode1 = '{stimulus: \<div class=\"container\"><img src=\"../docs/img_goa/';
+/*  const displayCode1 = '{stimulus: \<div class=\"container\"><img src=\"../docs/img_goa/'; */
+
   var displayContent = [
     {bg:'black0.jpg', text:'simply  focus  and  relax'},
     {bg:'spiral1.gif', text:'simply  focus  and  relax'},
@@ -46,9 +46,9 @@
   displayContent.forEach(function(dispCont) {
     if (dispCont.text == null && dispCont.dur == null) {
       displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>'});
-    } else if (content.text == null) {
+    } else if (dispCont.text == null) {
       displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"></div>', trial_duration: dispCont.dur});
-    } else if (content.dur == null) {
+    } else if (dispCont.dur == null) {
       displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>'});
     } else {
       displayTrials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + dispCont.bg + '" style="width:100%;"><div class="text-block"><p><pre>' + dispCont.text + '</pre></p></div></div>', trial_duration: dispCont.dur});
@@ -58,7 +58,7 @@
   var block1 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
-    trial_duration: 2000,
+    trial_duration: 5000,
     timeline: displayTrials,
   };
   
