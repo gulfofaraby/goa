@@ -173,8 +173,12 @@
   
   var block2Trials = [];
   var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
-  var nextText = {trial: null, text: null};
-  nextText = block2Content.shift();
+  // var nextText = {trial: null, text: null};
+  // console.log(nextText);
+  var nextText = block2Content.shift();
+  console.log(nextText);
+  console.log(nextText.text);
+  console.log(nextText.trial);
   for (step = 0; step < 90; step++) {
     if (nextText.trial !== step) {
       block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"></div>'});
