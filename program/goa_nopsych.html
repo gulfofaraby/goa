@@ -213,17 +213,43 @@
     block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/spiral0.gif" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>', trial_duration: block2Cont.dur});
   });
 
-  var trial2Delay_def = 160;
-  var trial2Delay = 160;
+  var duration_default = 160;
+  var duration = 160;
+  var trialCur = block2Trials.shift();
+  function runTrials() {
+      document.body.innerHTML = trialCur.stimulus;
+      if (trialCur.trial_duration == undefined) {
+          duration = duration_default;
+      } else {
+          duration = trialCur.trial_duration;
+      }
+      trialCur = block2Trials.shift();
+      console.log(duration);
+      if (trialCur.stimulus != undefined) {
+          setTimeout(runTrial(), duration);
+      }
+    }
+
+  runTrials();
+
+  /*  
+  function runTrialsInner() {
+  }
+  */
+
+
+  /*
   var waitCount = 0;
   var waitID = 0;
   function wait() {
-      console.log('WaitCount = ' + waitCount + 'trial2Delay = ' + trial2Delay);
       waitCount++;
       if (waitCount < 2) {
-        waitID = setTimeout(wait(), trial2Delay);
+        waitID = setTimeout(wait, trial2Delay);
       }
-    }
+  }
+  */
+
+
 
   /*
   function waitInner(dur) {
