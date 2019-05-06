@@ -131,49 +131,54 @@
       block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block1Cont.text + '</pre></p></div></div>', trial_duration: block1Cont.dur});
     }
   });
-
+                                         
   var block2Content = [
-    {trial: 8, text: 'it\'s relaxing to spread your legs'},
-    {trial: 9, text: 'it\'s relaxing to spread your legs'},
-    {trial: 10, text: 'it\'s relaxing to spread your legs'},
-    {trial: 17, text: 'a good girl spreads her legs'},
-    {trial: 18, text: 'a good girl spreads her legs'},
-    {trial: 26, text: 'it\'s relaxing  to  spread your legs               '},
-    {trial: 27, text: 'it\'s relaxing  to  spread your legs               '},
-    {trial: 28, text: 'it feels good  to  spread your legs               '},
-    {trial: 29, text: 'it feels good  to  spread your legs               '},
-    {trial: 30, text: '       a good girl spreads her legs               '},
-    {trial: 31, text: '       a good girl spreads her legs               '},
-    {trial: 32, text: '       a good girl spreads her legs               '},
-    {trial: 36, text: ' it feels good  to spread your legs               '},
-    {trial: 37, text: ' it feels good  to spread your legs               '},
-    {trial: 38, text: '                   spread your legs               '},
-    {trial: 39, text: '                   spread your legs               '},
-    {trial: 45, text: '                      good girl                   '},
-    {trial: 46, text: '                      good girl                   '},
-    {trial: 47, text: '                      good girl                   '},
-    {trial: 50, text: '                   spread your legs               '},
-    {trial: 51, text: '                   spread your legs               '},
-    {trial: 52, text: '                   spread your legs               '},
-    {trial: 55, text: '                      good girl                   '},
-    {trial: 56, text: '                      good girl                   '},
-    {trial: 57, text: '                      good girl                   '},
-    {trial: 60, text: '                   spread your legs               '},
-    {trial: 61, text: '                   spread your legs               '},
-    {trial: 62, text: '                   spread your legs               '},
-    {trial: 65, text: '                      good girl                   '},
-    {trial: 66, text: '                      good girl                   '},
-    {trial: 69, text: '                   spread your legs               '},
-    {trial: 70, text: '                   spread your legs               '},
-    {trial: 73, text: '                   spread your legs               '},
-    {trial: 74, text: '                   spread your legs               '},
-    {trial: 77, text: '                   spread your legs               '},
-    {trial: 78, text: '                   spread your legs               '}
-  ]
+    {trial: 8, text: 'it\'s relaxing to spread your legs', frames: 3},
+    {trial: 17, text: 'a good girl spreads her legs', frames: 2},
+    {trial: 26, text: 'it\'s relaxing  to  spread your legs               ', frames: 2},
+    {trial: 28, text: 'it feels good  to  spread your legs               ', frames: 2},
+    {trial: 30, text: '       a good girl spreads her legs               ', frames: 3},
+    {trial: 36, text: ' it feels good  to spread your legs               ', frames: 2},
+    {trial: 38, text: '                   spread your legs               ', frames: 2},
+    {trial: 45, text: '                      good girl                   ', frames: 3},
+    {trial: 50, text: '                   spread your legs               ', frames: 3},
+    {trial: 55, text: '                      good girl                   ', frames: 3},
+    {trial: 60, text: '                   spread your legs               ', frames: 3},
+    {trial: 65, text: '                      good girl                   ', frames: 2},
+    {trial: 69, text: '                   spread your legs               ', frames: 2},
+    {trial: 73, text: '                   spread your legs               ', frames: 2},
+    {trial: 77, text: '                   spread your legs               ', frames: 2}
+  ];
+                                         
+  var block2Trials = [];
+  var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+  step = 0;
+  var stepText = 0;
+  block2Content.forEach(function(block2Cont) {
+    for (; step < block2Cont.trial; step ++)
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"></div>'});
+    for (stepText = 0; stepText < block2Cont.frames; stepText++)
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
+    step += stepText;
+  }
+  console.log(block2Trials);
   
+/*  
+  for (step = 0; step < 90; step++) {
+    if (nextText.trial !== step) {
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"></div>'});
+    } else {
+      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2BG + '" style="width:100%;"><div class="text-block"><p><pre>' + nextText.text + '</pre></p></div></div>'});
+      nextText = block2Content.shift();
+    //  nextTrial = nextText.trial;
+    }
+    block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+  } 
+ 
   var block2Trials = [];
   var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
   var nextText = new Object();
+  nextText.trial = 
   nextText = block2Content.shift();
   //var nextTrial = nextText.trial;
   for (step = 0; step < 90; step++) {
@@ -186,6 +191,7 @@
     }
     block2BG = picsL[Math.floor(Math.random()*picsL.length)];
   } 
+  */
   
   var block1 = {
     type: 'html-keyboard-response',
