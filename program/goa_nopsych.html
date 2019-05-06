@@ -223,9 +223,9 @@
       } else {
           duration = trialCur.trial_duration;
       }
-      trialCur = block2Trials.shift();
-      console.log(duration);
-      if (trialCur.stimulus != undefined) {
+      console.log(block2Trials[0]);
+      if (block2Trials[0] != undefined) {
+          trialCur = block2Trials.shift();
           setTimeout(runTrials, duration);
       }
     }
