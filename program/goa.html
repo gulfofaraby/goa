@@ -185,18 +185,19 @@
   */
 
   var block2Content = [
-    {trial: 15, text: 'it\'s relaxing to spread your legs', dur: 600},
-    {trial: 25, text: 'a good girl spreads her legs', dur: 400},
-    {trial: 38, text: 'it\'s relaxing  to  spread your legs               ', dur: 300},
-    {trial: 45, text: 'it feels good  to  spread your legs               ', dur: 300},
-    {trial: 46, text: '       a good girl spreads her legs               ', dur: 600},
-    {trial: 47, text: ' it feels good  to spread your legs               ', dur: 300},
-    {trial: 70, text: '                   spread your legs               ', dur: 400},
-    {trial: 71, text: '                      good girl                   ', dur: 200},
-    {trial: 85, text: '                   spread your legs               ', dur: 500},
-    {trial: 86, text: '                      good girl                   ', dur: 400},
-    {trial: 99, text: '                   spread your legs               ', dur: 600},
-    {trial: 100, text: '                      good girl                   ', dur: 600}
+    {trial: 7, text: 'it\'s relaxing to spread your legs', dur: 600},
+    {trial: 15, text: 'a good girl spreads her legs', dur: 400},
+    {trial: 20, text: 'it\'s relaxing  to  spread your legs', dur: 300},
+    {trial: 22, text: 'it feels good  to  spread your legs', dur: 300},
+    {trial: 27, text: 'a good girl has her legs spread', dur: 600},
+    {trial: 34, text: 'it\'s good  to  spread your legs', dur: 300},
+    {trial: 38, text: 'a good girl feels so good with her legs spread', dur: 300},
+    {trial: 40, text: 'so relaxing to spread your legs', dur: 300},
+    {trial: 50, text: 'with your legs spread, you are', dur: 400},
+    {trial: 50, text: 'ready', dur: 300},
+    {trial: 52, text: 'to', dur: 300},
+    {trial: 53, text: 'receive', dur: 300},
+    {trial: 59, text: 'breathe focus relax spread legs', dur: 400}
   ];
 
   var block2Trials = [];
@@ -248,14 +249,14 @@
   var block1 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
-    trial_duration: 2000,
+    trial_duration: 1000,
     timeline: block1Trials,
   };
 
   var block2 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
-    trial_duration: 167,
+    trial_duration: 155,
     timeline: block2Trials,
   };
   
@@ -281,7 +282,7 @@
   };
   
   jsPsych.init({
-    timeline: [iti1, block2],
+    timeline: [block1, block2],
     // timeline: [block1, block2, block2_strobe, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
