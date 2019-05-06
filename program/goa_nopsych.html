@@ -216,6 +216,12 @@
   var trial2Delay_def = 160;
   var trial2Delay = 160;
   var waitCount = 0;
+  function wait() {
+      waitCount++;
+      if (waitCount < 2) {
+        setTimeout(wait, trial2Delay);
+      }
+  /*
   function waitInner(dur) {
       waitCount++;
       if (waitCount < 2) {
@@ -226,6 +232,7 @@
       waitInner(dur);
       waitCount = 0;
   }
+  */
 
   block2Trials.forEach(function(block2Trial){
       if (block2Trial.trial_duration == undefined) {
@@ -234,7 +241,9 @@
           trial2Delay = block2Trial.trial_duration;
       }
       document.body.innerHTML = block2Trial.stimulus;
-      wait(trial2Delay);  
+      wait();
+      waitCount = 0;
+      console.log(block2Trial.stimulus);
       // setTimeout(setTrue(delayDone), trial2Delay);
       // while (delayDone == false)
       //   delayFiller = 1 - delayFiller;
