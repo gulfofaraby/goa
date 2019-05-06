@@ -156,9 +156,9 @@
   var stepText = 0;
   block2Content.forEach(function(block2Cont) {
     for (; step < block2Cont.trial; step ++)
-      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"></div>'});
+      block2Trials.push({stimulus: '<div class="container"><img src="' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"></div>'});
     for (stepText = 0; stepText < block2Cont.frames; stepText++)
-      block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
+      block2Trials.push({stimulus: '<div class="container"><img src="' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
     step += stepText;
   });
   console.log(block2Trials);
@@ -229,7 +229,8 @@
   };
   
   jsPsych.init({
-    timeline: [block1, block2, block2_strobe, iti1, trial2],
+    timeline: [block2],
+    // timeline: [block1, block2, block2_strobe, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
     }
