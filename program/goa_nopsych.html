@@ -215,11 +215,18 @@
 
   var trial2Delay_def = 160;
   var trial2Delay = 160;
-  var delayDone = false;
-  var delayFiller = 0;
-  function setTrue(input) {
-      input = true;
+  var waitCount = 0;
+  function waitInner(dur) {
+      waitCount++;
+      if (waitCount < 2) {
+        setTimeout(waitInner, dur);
+      }
   }
+  function wait(dur) {
+      waitInner(dur);
+      waitCount = 0;
+  }
+
   block2Trials.forEach(function(block2Trial){
       if (block2Trial.trial_duration == undefined) {
           trial2Delay = trial2Delay_def;
@@ -227,10 +234,11 @@
           trial2Delay = block2Trial.trial_duration;
       }
       document.body.innerHTML = block2Trial.stimulus;
-      setTimeout(setTrue(delayDone), trial2Delay);
-      while (delayDone == false)
-        delayFiller = 1 - delayFiller;
-      delayDone = false;
+      wait(trial2delay);  
+      // setTimeout(setTrue(delayDone), trial2Delay);
+      // while (delayDone == false)
+      //   delayFiller = 1 - delayFiller;
+      // delayDone = false;
   })
   
   /*
