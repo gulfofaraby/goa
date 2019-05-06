@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>body{color:white; background-color:black;} p{color:white; font-size:48px; font-type:"Courier New"; margin:.1em;}</style>
+  <style>body{color:white; background-color:black; font-size:48px; font-type:"Courier New"; margin:.1em; align-items:center; justify-content:center;} p{color:white; font-size:48px; font-type:"Courier New"; margin:.1em;}</style>
   <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding-left:15px; padding-right:15px; margin:0px;}</style>
   <style> .container2{position:relative; float:left; height:450px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;}</style>
-  <script src="../jspsych.js"></script>
-  <script src="../plugins/jspsych-animation.js"></script>
-  <script src="../plugins/jspsych-html-keyboard-response.js"></script>
-  <script src="../plugins/jspsych-image-keyboard-response.js"></script>
-  <link rel="stylesheet" href="../css/jspsych.css"></link>
 </head>
 <body>
 </body>
@@ -31,6 +26,8 @@
   for (step = 0; step < 11; step++) 
     picsV.push(picPath.concat('v', step, '.jpg'));
   const picsA = picsB.concat(picsL, picsP, picsS, picsV);
+
+  /*
   var block1Content = [
     {bg:'black0.jpg', text:'simply focus and relax'},
     {bg:'spiral1.gif', text:'simply focus and relax'},
@@ -133,55 +130,8 @@
       block1Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block1BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block1Cont.text + '</pre></p></div></div>', trial_duration: block1Cont.dur});
     }
   });
-  /*
-  var block2Content = [
-    {trial: 15, text: 'it\'s relaxing to spread your legs', frames: 4},
-    {trial: 25, text: 'a good girl spreads her legs', frames: 3},
-    {trial: 29, image: 'spiral0.gif', dur: 5000},
-    {trial: 38, text: 'it\'s relaxing  to  spread your legs               ', frames: 3},
-    {trial: 41, text: 'it feels good  to  spread your legs               ', frames: 3},
-    {trial: 44, text: '       a good girl spreads her legs               ', frames: 4},
-    {trial: 48, text: ' it feels good  to spread your legs               ', frames: 3},
-    {trial: 55, image: 'spiral0.gif', dur: 5000},
-    {trial: 75, text: '                   spread your legs               ', frames: 4},
-    {trial: 83, text: '                      good girl                   ', frames: 4},
-    {trial: 91, text: '                   spread your legs               ', frames: 4},
-    {trial: 99, text: '                      good girl                   ', frames: 4},
-    {trial: 107, text: '                   spread your legs               ', frames: 4},
-    {trial: 115, text: '                      good girl                   ', frames: 4},
-    {trial: 123, text: '                   spread your legs               ', frames: 4},
-    {trial: 131, text: '                   spread your legs               ', frames: 4},
-    {trial: 139, text: '                   spread your legs               ', frames: 4},
-    {trial: 150, image: 'spiral0.gif', dur: 5000},
-  ];
-  var block2Trials = [];
-  var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
-  var block2BG_mem1 = block2BG;
-  var block2BG_mem2 = block2BG_mem1;
-  step = 0;
-  var stepText = 0;
-  block2Content.forEach(function(block2Cont) {
-    for (; step < block2Cont.trial; step ++) {
-      block2Trials.push({stimulus: '<div class="container2"><img src="' + block2BG + '" style="width:100%;"></div>'});
-      block2BG_mem2 = block2BG_mem1;
-      block2BG_mem1 = block2BG;
-      while (block2BG == block2BG_mem1 || block2BG == block2BG_mem2)
-        block2BG = picsL[Math.floor(Math.random()*picsL.length)];
-    }
-    if (block2Cont.frames != undefined) {
-      for (stepText = 0; stepText < block2Cont.frames; stepText++) {
-        block2Trials.push({stimulus: '<div class="container2"><img src="' + block2BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
-        block2BG_mem2 = block2BG_mem1;
-        block2BG_mem1 = block2BG;
-        while (block2BG == block2BG_mem1 || block2BG == block2BG_mem2)
-          block2BG = picsL[Math.floor(Math.random()*picsL.length)];
-      }  
-    } else {
-        block2Trials.push({stimulus: '<div class="container"><img src="../docs/img_goa/' + block2Cont.image + '" style="width:100%;"></div>', trial_duration: block2Cont.dur});
-    }
-      step += stepText;
-  });
   */
+
   var block2Content = [
     {trial: 7, text: 'it\'s relaxing to spread your legs', dur: 600},
     {trial: 15, text: 'a good girl spreads her legs', dur: 600},
@@ -232,97 +182,5 @@
 
   runTrials();
 
-  /*  
-  function runTrialsInner() {
-  }
-  */
-
-
-  /*
-  var waitCount = 0;
-  var waitID = 0;
-  function wait() {
-      waitCount++;
-      if (waitCount < 2) {
-        waitID = setTimeout(wait, trial2Delay);
-      }
-  }
-  */
-
-
-
-  /*
-  function waitInner(dur) {
-      waitCount++;
-      if (waitCount < 2) {
-        setTimeout(waitInner, dur);
-      }
-  }
-  function wait(dur) {
-      waitInner(dur);
-      waitCount = 0;
-  }
-  */
-
-  block2Trials.forEach(function(block2Trial){
-      if (block2Trial.trial_duration == undefined) {
-          trial2Delay = trial2Delay_def;
-      } else {
-          trial2Delay = block2Trial.trial_duration;
-      }
-      document.body.innerHTML = block2Trial.stimulus;
-      wait();
-      waitCount = 0;
-      console.log(block2Trial.stimulus);
-      // setTimeout(setTrue(delayDone), trial2Delay);
-      // while (delayDone == false)
-      //   delayFiller = 1 - delayFiller;
-      // delayDone = false;
-  });
-  
-  /*
-  var block1 = {
-    type: 'html-keyboard-response',
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 500,
-    timeline: block1Trials,
-  };
-  var block2 = {
-    type: 'html-keyboard-response',
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 155,
-    timeline: block2Trials,
-  };
-  
-  var block2_strobe = {
-    type: 'animation',
-    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsL, 24),
-    sequence_reps: 1,
-    frame_time: 150,
-  };
-  
-  var iti1 = {
-    type: 'animation',
-    stimuli: ['../docs/img_goa/pink0.jpg', '../docs/img_goa/s7.jpg', '../docs/img_goa/pink0.jpg', '../docs/img_goa/black0.jpg', '../docs/img_goa/black0.jpg', '../docs/img_goa/black0.jpg'],
-    sequence_reps: 1,
-    frame_time: 100,
-  };
-  
-  var trial2 = {
-    type: 'animation',
-    stimuli: jsPsych.randomization.sampleWithoutReplacement(picsA, 30),
-    sequence_reps: 1,
-    frame_time: 100,
-  };
-
-  jsPsych.init({
-    timeline: [block1, block2],
-    // timeline: [block1, block2, block2_strobe, iti1, trial2],
-    on_finish: function() {
-      jsPsych.data.displayData();
-    }
-  });
-  */
 </script>
-
 </html>
