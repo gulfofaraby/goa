@@ -216,10 +216,11 @@
   var trial2Delay_def = 160;
   var trial2Delay = 160;
   var waitCount = 0;
+  var waitID = 0;
   function wait() {
       waitCount++;
       if (waitCount < 2) {
-        setTimeout(wait, trial2Delay);
+        waitID = setTimeout(wait, trial2Delay);
       }
     }
 
