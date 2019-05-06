@@ -217,6 +217,9 @@
   var trial2Delay = 160;
   var delayDone = false;
   var delayFiller = 0;
+  function setTrue(input) {
+      input = true;
+  }
   block2Trials.forEach(function(block2Trial){
       if (block2Trial.trial_duration == undefined) {
           trial2Delay = trial2Delay_def;
@@ -224,7 +227,7 @@
           trial2Delay = block2Trial.trial_duration;
       }
       document.body.innerHTML = block2Trial.stimulus;
-      setTimeout(delayDone = true, trial2Delay);
+      setTimeout(setTrue(delayDone), trial2Delay);
       while (delayDone == false)
         delayFiller = 1 - delayFiller;
       delayDone = false;
