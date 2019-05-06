@@ -2,8 +2,8 @@
 <html>
 <head>
   <style>body{color:white; background-color:black;} p{color:white; font-size:48px; font-type:"Courier New"; margin:.1em;}</style>
-  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding-left:15px; padding-right:15px; margin:0px; /* padding-left: 10px; padding-right: 10px; */ }</style>
-  <style> .container2{position:relative; float:left; height:600px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding-left:15px; padding-right:15px; margin:0px; /* padding-left: 10px; padding-right: 10px; */ }</style>
+  <style> .container{position:relative; float:left; width:800px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;} .text-block {position:absolute; background:rgb(0,0,0); background:rgba(0,0,0,0.7); color: white; padding-left:15px; padding-right:15px; margin:0px;}</style>
+  <style> .container2{position:relative; float:left; height:450px; margin:0px; padding:0px; display:flex; align-items:center; justify-content:center;}</style>
   <script src="../jspsych.js"></script>
   <script src="../plugins/jspsych-animation.js"></script>
   <script src="../plugins/jspsych-html-keyboard-response.js"></script>
@@ -216,7 +216,7 @@
   var block2 = {
     type: 'html-keyboard-response',
     choices: jsPsych.NO_KEYS,
-    trial_duration: 200,
+    trial_duration: 167,
     timeline: block2Trials,
   };
   
@@ -242,7 +242,7 @@
   };
   
   jsPsych.init({
-    timeline: [block2],
+    timeline: [iti1, block2],
     // timeline: [block1, block2, block2_strobe, iti1, trial2],
     on_finish: function() {
       jsPsych.data.displayData();
