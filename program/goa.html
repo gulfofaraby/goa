@@ -152,14 +152,26 @@
                                          
   var block2Trials = [];
   var block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+  var block2BG_mem1 = block2BG;
+  var block2BG_mem2 = block2BG_mem1;
   step = 0;
   var stepText = 0;
   block2Content.forEach(function(block2Cont) {
-    for (; step < block2Cont.trial; step ++)
-      block2Trials.push({stimulus: '<div class="container"><img src="' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"></div>'});
-    for (stepText = 0; stepText < block2Cont.frames; stepText++)
-      block2Trials.push({stimulus: '<div class="container"><img src="' + picsL[Math.floor(Math.random()*picsL.length)] + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
-    step += stepText;
+    for (; step < block2Cont.trial; step ++) {
+      block2Trials.push({stimulus: '<div class="container"><img src="' + block2BG + '" style="width:100%;"></div>'});
+      block2BG_mem2 = block2BG_mem1;
+      block2BG_mem1 = block2BG;
+      while (block2BG == block2BG_mem1 || block2BG == block2BG_mem2)
+        block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+    }
+    for (stepText = 0; stepText < block2Cont.frames; stepText++) {
+      block2Trials.push({stimulus: '<div class="container"><img src="' + block2BG + '" style="width:100%;"><div class="text-block"><p><pre>' + block2Cont.text + '</pre></p></div></div>'});
+      block2BG_mem2 = block2BG_mem1;
+      block2BG_mem1 = block2BG;
+      while (block2BG == block2BG_mem1 || block2BG == block2BG_mem2)
+        block2BG = picsL[Math.floor(Math.random()*picsL.length)];
+    }
+      step += stepText;
   });
   console.log(block2Trials);
   
