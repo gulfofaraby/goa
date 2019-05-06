@@ -221,7 +221,7 @@
       console.log('WaitCount = ' + waitCount + 'trial2Delay = ' + trial2Delay);
       waitCount++;
       if (waitCount < 2) {
-        waitID = setTimeout(wait, trial2Delay);
+        waitID = setTimeout(wait(), trial2Delay);
       }
     }
 
